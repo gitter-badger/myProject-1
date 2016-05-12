@@ -5,7 +5,7 @@ apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
 apply plugin: 'checkstyle'
-
+apply plugin: 'distribution'
 
 archivesBaseName = 'sainsbury-web-scrapper'
 
