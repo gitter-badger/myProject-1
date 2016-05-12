@@ -5,16 +5,10 @@ apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
 apply plugin: 'checkstyle'
-/*apply plugin: 'distribution'*/
 
 archivesBaseName = 'sainsbury-web-scrapper'
 
 mainClassName = "com.sainsburys.webscrapper.Application"
-
-/*distributions.main.baseName = archivesBaseName
-distributions.main.contents {
-    into "/${archivesBaseName}"
-}*/
 
 sourceSets {
     integrationTest {
@@ -48,6 +42,10 @@ dependencies {
             'org.mockito:mockito-core:1.10.19',
             'org.assertj:assertj-core:3.4.1',
             'org.springframework.boot:spring-boot-starter-test:1.3.5.RELEASE'
+}
+
+checkstyle {
+    toolVersion = "6.0"
 }
 
 task wrapper(type: Wrapper) {
