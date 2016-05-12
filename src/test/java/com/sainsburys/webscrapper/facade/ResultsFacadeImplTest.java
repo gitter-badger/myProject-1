@@ -4,7 +4,6 @@ import com.sainsburys.webscrapper.Repository.ProductRepository;
 import com.sainsburys.webscrapper.builders.ProductBuilder;
 import com.sainsburys.webscrapper.model.Product;
 import com.sainsburys.webscrapper.model.Result;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
