@@ -10,9 +10,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class HelloController implements CommandLineRunner {
+public class ProductScrapper implements CommandLineRunner {
 
-    private Logger LOGGER = Logger.getLogger(HelloController.class);
+    private Logger LOGGER = Logger.getLogger(ProductScrapper.class);
 
     @Autowired
     private ResultsFacade resultsFacade;
