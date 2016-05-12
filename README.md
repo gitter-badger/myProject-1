@@ -1,4 +1,7 @@
-#Purpose 
+#Purpose
+
+[![Build Status](https://snap-ci.com/fukatingu/myproject/branch/master/build_image)](https://snap-ci.com/fukatingu/myproject/branch/master)
+
 Source code 
 
 ##What is required to use this code
