@@ -2,6 +2,7 @@ package com.sainsburys.webscrapper.model;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 public class Result {
 
@@ -16,6 +17,12 @@ public class Result {
     }
 
     public BigDecimal getTotal() {
-        return results.stream().map(Product::getUnitPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        if (results == null) {
+            return null;
+        }
+
+        return results.stream().map(Product::getUnitPrice).reduce(BigDecimal::add).orElse(BigDecimal.ZERO);
+
     }
 }

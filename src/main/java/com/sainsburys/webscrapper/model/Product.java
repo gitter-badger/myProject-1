@@ -48,7 +48,7 @@ public class Product {
             return new BigDecimal(pricePerUnitWithoutStrings);
         }
 
-        return null;
+        return BigDecimal.ZERO;
     }
 
     public String getSize() {

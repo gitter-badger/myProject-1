@@ -25,7 +25,6 @@ public class ProductTest {
 
         // Then
         assertThat(actualSize).isEqualTo("38.6Kb");
-
     }
 
     @Test
@@ -45,7 +44,6 @@ public class ProductTest {
 
         // Then
         assertThat(actualSize).isEqualTo("38.6Kb");
-
     }
 
     @Test
@@ -67,11 +65,10 @@ public class ProductTest {
 
         // Then
         assertThat(actualUnitPrice).isEqualTo(expectedUnitPrice);
-
     }
 
     @Test
-    public void should_return_null_if_price_per_unit_is_null() throws Exception {
+    public void should_return_zero_if_price_per_unit_is_null() throws Exception {
 
         // Given
         String title = "Sainsbury's Kiwi Fruit, Ripe & Ready x4";
@@ -85,8 +82,7 @@ public class ProductTest {
         BigDecimal actualUnitPrice = product.getUnitPrice();
 
         // Then
-        assertThat(actualUnitPrice).isNull();
-
+        assertThat(actualUnitPrice).isZero();
     }
 
 }
