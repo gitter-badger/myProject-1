@@ -6,11 +6,9 @@ import java.util.List;
 public class Result {
 
     private final List<Product> results;
-    private final BigDecimal total;
 
     public Result(List<Product> results) {
         this.results = results;
-        this.total = results.stream().map(Product::getUnitPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public List<Product> getResults() {
@@ -18,6 +16,6 @@ public class Result {
     }
 
     public BigDecimal getTotal() {
-        return total;
+        return results.stream().map(Product::getUnitPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }

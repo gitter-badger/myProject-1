@@ -6,9 +6,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
+
 public class Product {
 
     private static final String NON_NUMERIC_REGEX = "[^\\d.]";
+    private static final String KB = "Kb";
 
     private final String title;
 
@@ -16,15 +19,15 @@ public class Product {
     private final String detailsUrl;
     private final double pageSize;
 
-    @JsonProperty("unit_price")
-    private final BigDecimal unitPrice;
+    @JsonIgnore
+    private final String pricePerUnit;
 
     private final String description;
 
     public Product(String title, String detailsUrl, String pricePerUnit, double pageSize, String description) {
         this.title = title;
         this.detailsUrl = detailsUrl;
-        this.unitPrice = new BigDecimal(pricePerUnit.replaceAll(NON_NUMERIC_REGEX, ""));
+        this.pricePerUnit = pricePerUnit;
         this.pageSize = pageSize;
         this.description = description;
     }
@@ -37,12 +40,19 @@ public class Product {
         return title;
     }
 
+    @JsonProperty("unit_price")
     public BigDecimal getUnitPrice() {
-        return unitPrice;
+
+        if (pricePerUnit != null) {
+            String pricePerUnitWithoutStrings = pricePerUnit.replaceAll(NON_NUMERIC_REGEX, EMPTY);
+            return new BigDecimal(pricePerUnitWithoutStrings);
+        }
+
+        return null;
     }
 
     public String getSize() {
-        return new DecimalFormat("#.#").format(pageSize) + "Kb";
+        return new DecimalFormat("#.#").format(pageSize) + KB;
     }
 
     public String getDescription() {
