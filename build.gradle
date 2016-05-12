@@ -5,16 +5,16 @@ apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
 apply plugin: 'checkstyle'
-apply plugin: 'distribution'
+/*apply plugin: 'distribution'*/
 
 archivesBaseName = 'sainsbury-web-scrapper'
 
 mainClassName = "com.sainsburys.webscrapper.Application"
 
-distributions.main.baseName = archivesBaseName
+/*distributions.main.baseName = archivesBaseName
 distributions.main.contents {
     into "/${archivesBaseName}"
-}
+}*/
 
 sourceSets {
     integrationTest {
