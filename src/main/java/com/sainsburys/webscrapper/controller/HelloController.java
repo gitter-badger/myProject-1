@@ -1,7 +1,9 @@
 package com.sainsburys.webscrapper.controller;
 
-import com.sainsburys.webscrapper.model.Word;
-import com.sainsburys.webscrapper.service.WordService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.sainsburys.webscrapper.facade.ResultsFacade;
+import com.sainsburys.webscrapper.model.Result;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -10,18 +12,20 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class HelloController implements CommandLineRunner {
 
-    @Autowired
-    private WordService wordService;
-
     private Logger LOGGER = Logger.getLogger(HelloController.class);
+
+    @Autowired
+    private ResultsFacade resultsFacade;
 
     @Override
     public void run(String... strings) throws Exception {
 
-        Word word = wordService.createWord("Scrapper Starts Here");
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-        LOGGER.info("*************************************");
-        LOGGER.info(word.getText());
-        LOGGER.info("*************************************");
+        Result result = resultsFacade.getResults();
+        String resultAsJson = mapper.writeValueAsString(result);
+
+        LOGGER.info(resultAsJson);
     }
 }
