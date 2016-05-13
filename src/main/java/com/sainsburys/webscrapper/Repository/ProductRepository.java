@@ -1,4 +1,4 @@
-package com.sainsburys.webscrapper.Repository;
+package com.sainsburys.webscrapper.repository;
 
 import com.sainsburys.webscrapper.model.Product;
 

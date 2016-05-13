@@ -1,6 +1,6 @@
-package com.sainsburys.webscrapper.Repository;
+package com.sainsburys.webscrapper.repository;
 
-import com.sainsburys.webscrapper.Parser.Parser;
+import com.sainsburys.webscrapper.parser.Parser;
 import com.sainsburys.webscrapper.model.Product;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -61,8 +61,6 @@ public class ProductRepositoryImplTest {
 
         // Given
         Elements elements = getProductElements();
-
-        when(htmlParser.getAllProducts()).thenReturn(elements);
 
         // When
         List<Product> products = productRepository.getAll();

@@ -1,6 +1,6 @@
 package com.sainsburys.webscrapper.facade;
 
-import com.sainsburys.webscrapper.Repository.ProductRepository;
+import com.sainsburys.webscrapper.repository.ProductRepository;
 import com.sainsburys.webscrapper.builders.ProductBuilder;
 import com.sainsburys.webscrapper.model.Product;
 import com.sainsburys.webscrapper.model.Result;

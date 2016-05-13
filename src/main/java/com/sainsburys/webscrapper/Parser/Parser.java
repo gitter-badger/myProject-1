@@ -1,4 +1,4 @@
-package com.sainsburys.webscrapper.Parser;
+package com.sainsburys.webscrapper.parser;
 
 import org.jsoup.select.Elements;
 
