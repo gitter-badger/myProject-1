@@ -1,7 +1,7 @@
 package com.sainsburys.productscrapper.facade;
 
+import com.sainsburys.productscrapper.model.Result;
+
 public interface ResultsFacade {
-
-    String getResults();
-
+    Result getResults();
 }
