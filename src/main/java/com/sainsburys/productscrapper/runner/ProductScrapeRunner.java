@@ -1,4 +1,4 @@
-package com.sainsburys.productscrapper.controller;
+package com.sainsburys.productscrapper.runner;
 
 import com.sainsburys.productscrapper.facade.ResultsFacade;
 import org.apache.log4j.Logger;
@@ -7,9 +7,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class ProductScrapperController implements CommandLineRunner {
+public class ProductScrapeRunner implements CommandLineRunner {
 
-    private Logger LOG = Logger.getLogger(ProductScrapperController.class);
+    private Logger LOG = Logger.getLogger(ProductScrapeRunner.class);
 
     @Autowired
     private ResultsFacade resultsFacade;
