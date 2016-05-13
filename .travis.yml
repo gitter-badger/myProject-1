@@ -3,3 +3,10 @@ jdk:
   - oraclejdk8
 before_install:
    - chmod +x gradlew
+gradle clean
+gradle build
+gradle checkstyle
+gradle jacocoTestReport
+gradle test
+gradle fatJar
+gradle run
