@@ -20,7 +20,7 @@ This application uses a local instance of [Gradle](http://gradle.org/).
 * git clone *************************** TODO ***************************
 * gradlew fatJar
 * cd [PROJECT_ROOT]/build/lib folder
-* java -jar myproject-all-1.0.jar
+* java -jar myproject-all-1.0.jar (*************************** TODO change the jar name ***************************)
 
 ### Running the application with [Gradle](http://gradle.org/)
 
