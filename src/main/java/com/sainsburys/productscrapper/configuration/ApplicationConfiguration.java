@@ -1,5 +1,7 @@
 package com.sainsburys.productscrapper.configuration;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,8 +11,8 @@ import com.sainsburys.productscrapper.parser.HtmlParserImpl;
 import com.sainsburys.productscrapper.parser.Parser;
 import com.sainsburys.productscrapper.reporter.ConsoleReporter;
 import com.sainsburys.productscrapper.reporter.Reporter;
-import com.sainsburys.productscrapper.serializer.ResultJsonSerializer;
-import com.sainsburys.productscrapper.serializer.ResultSerializer;
+import com.sainsburys.productscrapper.serializer.ResultJsonSerialiser;
+import com.sainsburys.productscrapper.serializer.ResultSerialiser;
 import com.sainsburys.productscrapper.service.ProductService;
 import com.sainsburys.productscrapper.service.ProductServiceImpl;
 import com.sainsburys.productscrapper.webclient.JsoupWebClient;
@@ -45,7 +47,11 @@ public class ApplicationConfiguration {
     }
 
     @Bean
-    public ResultSerializer jsonSerializer() {
-        return new ResultJsonSerializer();
+    public ResultSerialiser jsonSerializer() {
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        return new ResultJsonSerialiser(mapper);
     }
 }

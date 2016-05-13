@@ -3,7 +3,7 @@ package com.sainsburys.productscrapper.reporter;
 import com.sainsburys.productscrapper.builders.ProductBuilder;
 import com.sainsburys.productscrapper.model.Product;
 import com.sainsburys.productscrapper.model.Result;
-import com.sainsburys.productscrapper.serializer.ResultSerializer;
+import com.sainsburys.productscrapper.serializer.ResultSerialiser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 public class ConsoleReporterTest {
 
     @Mock
-    private ResultSerializer resultSerializer;
+    private ResultSerialiser resultSerialiser;
 
     @InjectMocks
     private Reporter consoleReporter = new ConsoleReporter();
@@ -37,13 +37,13 @@ public class ConsoleReporterTest {
         List<Product> products = asList(product1, product2, product3);
         Result result = new Result(products);
 
-        when(resultSerializer.serialize(result)).thenReturn(serializedJson);
+        when(resultSerialiser.serialize(result)).thenReturn(serializedJson);
 
         // Act
         consoleReporter.report(result);
 
         // Assert
-        verify(resultSerializer).serialize(result);
+        verify(resultSerialiser).serialize(result);
     }
 
 }

@@ -20,7 +20,6 @@ public class JsoupWebClient implements WebClient {
 
         try {
             document = Jsoup.connect(url).get();
-
         } catch (IOException e) {
             LOG.error("Error connecting to url", e);
         }
@@ -36,7 +35,6 @@ public class JsoupWebClient implements WebClient {
 
         try {
             response = Jsoup.connect(url).execute();
-
         } catch (IOException e) {
             LOG.error("Error connecting to url", e);
         }

@@ -2,15 +2,20 @@ package com.sainsburys.productscrapper.serializer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.sainsburys.productscrapper.model.Result;
 import org.apache.log4j.Logger;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
-public class ResultJsonSerializer implements ResultSerializer {
+public class ResultJsonSerialiser implements ResultSerialiser {
 
-    private Logger LOG = Logger.getLogger(ResultJsonSerializer.class);
+    private Logger LOG = Logger.getLogger(ResultJsonSerialiser.class);
+
+    private final ObjectMapper mapper;
+
+    public ResultJsonSerialiser(ObjectMapper objectMapper){
+        this.mapper = objectMapper;
+    }
 
     @Override
     public String serialize(Result result) {
@@ -20,13 +25,11 @@ public class ResultJsonSerializer implements ResultSerializer {
         }
 
         String resultAsJson = EMPTY;
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
         try {
             resultAsJson = mapper.writeValueAsString(result);
         } catch (JsonProcessingException e) {
-            LOG.error("error converting results to json", e);
+            LOG.error("Error serialising results to JSON", e);
         }
 
         return resultAsJson;
