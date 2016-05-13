@@ -12,11 +12,10 @@ import org.mockito.runners.MockitoJUnitRunner;
 import java.util.List;
 
 import static java.util.Arrays.asList;
+import static net.javacrumbs.jsonunit.fluent.JsonFluentAssert.assertThatJson;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
-import static net.javacrumbs.jsonunit.fluent.JsonFluentAssert.assertThatJson;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ResultsFacadeImplTest {

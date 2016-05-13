@@ -43,7 +43,7 @@ public class ResultsFacadeImpl implements ResultsFacade {
         try {
             resultAsJson = mapper.writeValueAsString(result);
         } catch (JsonProcessingException e) {
-            LOG.error("error converting restuls to json", e);
+            LOG.error("error converting results to json", e);
         }
 
         return resultAsJson;
