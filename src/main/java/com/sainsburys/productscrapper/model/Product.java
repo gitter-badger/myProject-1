@@ -1,4 +1,4 @@
-package com.sainsburys.webscrapper.model;
+package com.sainsburys.productscrapper.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

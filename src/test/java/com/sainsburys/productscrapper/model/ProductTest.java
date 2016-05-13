@@ -1,4 +1,4 @@
-package com.sainsburys.webscrapper.model;
+package com.sainsburys.productscrapper.model;
 
 import org.junit.Test;
 

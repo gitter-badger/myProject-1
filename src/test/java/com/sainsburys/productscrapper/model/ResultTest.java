@@ -1,6 +1,6 @@
-package com.sainsburys.webscrapper.model;
+package com.sainsburys.productscrapper.model;
 
-import com.sainsburys.webscrapper.builders.ProductBuilder;
+import com.sainsburys.productscrapper.builders.ProductBuilder;
 import org.junit.Test;
 
 import java.math.BigDecimal;

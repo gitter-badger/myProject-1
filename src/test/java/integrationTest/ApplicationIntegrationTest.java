@@ -8,7 +8,7 @@ import org.springframework.boot.test.OutputCapture;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.sainsburys.webscrapper.Application;
+import com.sainsburys.productscrapper.Application;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

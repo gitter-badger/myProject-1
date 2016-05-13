@@ -1,6 +1,6 @@
-package com.sainsburys.webscrapper.builders;
+package com.sainsburys.productscrapper.builders;
 
-import com.sainsburys.webscrapper.model.Product;
+import com.sainsburys.productscrapper.model.Product;
 
 public class ProductBuilder {
 
