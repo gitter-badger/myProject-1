@@ -7,15 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
 public class ProductRepositoryImpl implements ProductRepository {
 
-    private static final String PRICE_PER_UNIT = "pricePerUnit";
     private static final String TITLE = "div.productInfo a";
     private static final String DETAILS_URL = "div.productInfo a";
     private static final String HREF = "href";
+    private static final String PRICE_PER_UNIT = "pricePerUnit";
 
     @Autowired
     private Parser htmlParser;
@@ -25,20 +26,26 @@ public class ProductRepositoryImpl implements ProductRepository {
 
         Elements allProducts = htmlParser.getAllProducts();
 
-        List<Product> products = allProducts.stream().map(p -> {
+        if (allProducts == null) {
+            return null;
+        }
 
-            String title = p.select(TITLE).text();
-            String detailsUrl = p.select(DETAILS_URL).attr(HREF);
-            String pricePerUnit = p.getElementsByClass(PRICE_PER_UNIT).get(0).ownText();
+        List<Product> products = allProducts.stream()
+                .map(p -> {
 
-            double pageSize = htmlParser.getPageSize(detailsUrl);
-            String description = htmlParser.getProductDescription(detailsUrl);
+                    String title = p.select(TITLE).text();
+                    String detailsUrl = p.select(DETAILS_URL).attr(HREF);
+                    String pricePerUnit = p.getElementsByClass(PRICE_PER_UNIT).get(0).ownText();
 
-            Product product = new Product(title, detailsUrl, pricePerUnit, pageSize, description);
+                    double pageSize = htmlParser.getPageSize(detailsUrl);
+                    String description = htmlParser.getProductDescription(detailsUrl);
 
-            return product;
+                    Product product = new Product(title, detailsUrl, pricePerUnit, pageSize, description);
 
-        }).collect(Collectors.toList());
+                    return product;
+
+                })
+                .collect(Collectors.toList());
 
         return products;
     }
