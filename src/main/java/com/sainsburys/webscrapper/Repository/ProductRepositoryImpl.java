@@ -1,7 +1,7 @@
-package com.sainsburys.webscrapper.Repository;
+package com.sainsburys.webscrapper.repository;
 
-import com.sainsburys.webscrapper.Parser.Parser;
 import com.sainsburys.webscrapper.model.Product;
+import com.sainsburys.webscrapper.parser.Parser;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
