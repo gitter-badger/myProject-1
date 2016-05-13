@@ -6,7 +6,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import static com.sainsburys.productscrapper.constants.Constants.*;
@@ -15,14 +14,11 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
 @Component
 public class HtmlParserImpl implements Parser {
 
-    @Value("${scrapper.url}")
-    private String url;
-
     @Autowired
     private WebClient webClient;
 
     @Override
-    public Elements getAllProducts() {
+    public Elements getAllProducts(String url) {
 
         Document document = webClient.getDocument(url);
         Elements elements = document.select(ALL_PRODUCT_INFO_WRAPPERS);

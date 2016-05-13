@@ -44,7 +44,7 @@ public class HtmlParserTest {
         when(document.select(ALL_PRODUCT_INFO_WRAPPERS)).thenReturn(elements);
 
         // Act
-        Elements allProducts = htmlParser.getAllProducts();
+        Elements allProducts = htmlParser.getAllProducts(SCRAPE_URL);
 
         // Assert
         verify(webClient).getDocument(anyString());

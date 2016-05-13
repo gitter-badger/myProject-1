@@ -20,7 +20,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getAll() {
 
-        Elements allProducts = htmlParser.getAllProducts();
+        Elements allProducts = htmlParser.getAllProducts(SCRAPE_URL);
 
         if (allProducts == null) {
             return null;

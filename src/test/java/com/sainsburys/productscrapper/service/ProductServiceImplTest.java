@@ -14,6 +14,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import java.math.BigDecimal;
 import java.util.List;
 
+import static com.sainsburys.productscrapper.constants.Constants.SCRAPE_URL;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;
@@ -32,20 +33,20 @@ public class ProductServiceImplTest {
     public void should_call_html_parser_to_get_all_products() {
 
         // Arrange
-        when(htmlParser.getAllProducts()).thenReturn(null);
+        when(htmlParser.getAllProducts(SCRAPE_URL)).thenReturn(null);
 
         // Act
         productService.getAll();
 
         // Assert
-        verify(htmlParser).getAllProducts();
+        verify(htmlParser).getAllProducts(SCRAPE_URL);
     }
 
     @Test
     public void should_convert_and_products_when_parser_returns_elements() {
 
         // Arrange
-        when(htmlParser.getAllProducts()).thenReturn(null);
+        when(htmlParser.getAllProducts(SCRAPE_URL)).thenReturn(null);
 
         // Act
         List<Product> products = productService.getAll();
@@ -60,7 +61,7 @@ public class ProductServiceImplTest {
         // Arrange
         Elements elements = getProductElements();
 
-        when(htmlParser.getAllProducts()).thenReturn(elements);
+        when(htmlParser.getAllProducts(SCRAPE_URL)).thenReturn(elements);
 
         // Act
         List<Product> products = productService.getAll();
@@ -75,7 +76,7 @@ public class ProductServiceImplTest {
 
         // Arrange
         Elements elements = getProductElements();
-        when(htmlParser.getAllProducts()).thenReturn(elements);
+        when(htmlParser.getAllProducts(SCRAPE_URL)).thenReturn(elements);
 
         // Act
         List<Product> products = productService.getAll();
@@ -91,7 +92,7 @@ public class ProductServiceImplTest {
 
         // Arrange
         Elements elements = getProductElements();
-        when(htmlParser.getAllProducts()).thenReturn(elements);
+        when(htmlParser.getAllProducts(SCRAPE_URL)).thenReturn(elements);
 
         // Act
         List<Product> products = productService.getAll();
@@ -109,7 +110,7 @@ public class ProductServiceImplTest {
 
         // Arrange
         Elements elements = getProductElements();
-        when(htmlParser.getAllProducts()).thenReturn(elements);
+        when(htmlParser.getAllProducts(SCRAPE_URL)).thenReturn(elements);
         BigDecimal expectedUnitPrice = new BigDecimal("3.50");
 
         // Act
@@ -126,7 +127,7 @@ public class ProductServiceImplTest {
 
         // Arrange
         Elements elements = getProductElements();
-        when(htmlParser.getAllProducts()).thenReturn(elements);
+        when(htmlParser.getAllProducts(SCRAPE_URL)).thenReturn(elements);
         when(htmlParser.getPageSize(anyString())).thenReturn(10.13);
 
         // Act
@@ -143,7 +144,7 @@ public class ProductServiceImplTest {
 
         // Arrange
         Elements elements = getProductElements();
-        when(htmlParser.getAllProducts()).thenReturn(elements);
+        when(htmlParser.getAllProducts(SCRAPE_URL)).thenReturn(elements);
         when(htmlParser.getProductDescription(anyString())).thenReturn("some product description");
 
         // Act
