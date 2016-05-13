@@ -13,6 +13,7 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import static net.javacrumbs.jsonunit.fluent.JsonFluentAssert.assertThatJson;
@@ -25,6 +26,25 @@ public class ResultsFacadeImplTest {
 
     @InjectMocks
     private ResultsFacade resultsFacade = new ResultsFacadeImpl();
+
+
+    @Test
+    public void should_call_product_service_get_all_to_return_products() throws Exception {
+
+        // Arrange
+        Product product1 = new ProductBuilder().build();
+        Product product2 = new ProductBuilder().build();
+        Product product3 = new ProductBuilder().build();
+
+        List<Product> products = asList(product1, product2, product3);
+        when(productService.getAll()).thenReturn(products);
+
+        // Act
+        resultsFacade.getResults();
+
+        // Assert
+        verify(productService).getAll();
+    }
 
     @Test
     public void should_return_results_when_productRepository_returns_some_products() throws Exception {

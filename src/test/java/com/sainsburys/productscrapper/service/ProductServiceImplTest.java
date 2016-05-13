@@ -16,6 +16,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -26,6 +27,19 @@ public class ProductServiceImplTest {
 
     @InjectMocks
     private ProductService productService = new ProductServiceImpl();
+
+    @Test
+    public void should_call_html_parser_to_get_all_products() {
+
+        // Arrange
+        when(htmlParser.getAllProducts()).thenReturn(null);
+
+        // Act
+        productService.getAll();
+
+        // Assert
+        verify(htmlParser).getAllProducts();
+    }
 
     @Test
     public void should_convert_and_products_when_parser_returns_elements() {
