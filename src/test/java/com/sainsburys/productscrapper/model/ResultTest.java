@@ -15,7 +15,7 @@ public class ResultTest {
     @Test
     public void should_get_total_of_price_per_unit() {
 
-        // Given
+        // Arrange
         Product product1 = new ProductBuilder().withPricePerUnit("10.0").build();
         Product product2 = new ProductBuilder().withPricePerUnit("20.9").build();
         Product product3 = new ProductBuilder().withPricePerUnit("55.1").build();
@@ -26,30 +26,30 @@ public class ResultTest {
 
         Result result = new Result(products);
 
-        // When
+        // Act
         BigDecimal actualTotal = result.getTotal();
 
-        // Then
+        // Assert
         assertThat(actualTotal).isEqualTo(expectedTotal);
     }
 
     @Test
     public void should_return_null_for_total_if_no_products() throws Exception {
 
-        // Given
+        // Arrange
         Result result = new Result(null);
 
-        // When
+        // Act
         BigDecimal actualTotal = result.getTotal();
 
-        // Then
+        // Assert
         assertThat(actualTotal).isNull();
     }
 
     @Test
     public void should_return_zero_as_total_if_not_producct_have_price_per_unit_specified() {
 
-        // Given
+        // Arrange
         Product product1 = new ProductBuilder().build();
         Product product2 = new ProductBuilder().build();
         Product product3 = new ProductBuilder().build();
@@ -58,10 +58,10 @@ public class ResultTest {
 
         Result result = new Result(products);
 
-        // When
+        // Act
         BigDecimal actualTotal = result.getTotal();
 
-        // Then
+        // Assert
         assertThat(actualTotal).isZero();
     }
 }

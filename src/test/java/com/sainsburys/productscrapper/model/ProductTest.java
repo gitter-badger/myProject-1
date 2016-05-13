@@ -11,7 +11,7 @@ public class ProductTest {
     @Test
     public void should_return_formatted_page_size() throws Exception {
 
-        // Given
+        // Arrange
         String title = "Sainsbury's Kiwi Fruit, Ripe & Ready x4";
         String description = "Kiwi";
         String pricePerUnit = "12.20";
@@ -20,17 +20,17 @@ public class ProductTest {
 
         Product product = new Product(title, detailsUrl, pricePerUnit, pageSize, description);
 
-        // When
+        // Act
         String actualSize = product.getSize();
 
-        // Then
+        // Assert
         assertThat(actualSize).isEqualTo("38.6Kb");
     }
 
     @Test
     public void should_formatted_page_size_to_one_decimal_point() throws Exception {
 
-        // Given
+        // Arrange
         String title = "Sainsbury's Kiwi Fruit, Ripe & Ready x4";
         String description = "Kiwi";
         String pricePerUnit = "12.20";
@@ -39,17 +39,17 @@ public class ProductTest {
 
         Product product = new Product(title, detailsUrl, pricePerUnit, pageSize, description);
 
-        // When
+        // Act
         String actualSize = product.getSize();
 
-        // Then
+        // Assert
         assertThat(actualSize).isEqualTo("38.6Kb");
     }
 
     @Test
     public void should_remove_pound_sign_and_covert_to_unit_price() throws Exception {
 
-        // Given
+        // Arrange
         String title = "Sainsbury's Kiwi Fruit, Ripe & Ready x4";
         String description = "Kiwi";
         String pricePerUnit = "&pound3.50";
@@ -60,17 +60,17 @@ public class ProductTest {
 
         Product product = new Product(title, detailsUrl, pricePerUnit, pageSize, description);
 
-        // When
+        // Act
         BigDecimal actualUnitPrice = product.getUnitPrice();
 
-        // Then
+        // Assert
         assertThat(actualUnitPrice).isEqualTo(expectedUnitPrice);
     }
 
     @Test
     public void should_return_zero_if_price_per_unit_is_null() throws Exception {
 
-        // Given
+        // Arrange
         String title = "Sainsbury's Kiwi Fruit, Ripe & Ready x4";
         String description = "Kiwi";
         double pageSize = 38.6;
@@ -78,10 +78,10 @@ public class ProductTest {
 
         Product product = new Product(title, detailsUrl, null, pageSize, description);
 
-        // When
+        // Act
         BigDecimal actualUnitPrice = product.getUnitPrice();
 
-        // Then
+        // Assert
         assertThat(actualUnitPrice).isZero();
     }
 

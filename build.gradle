@@ -6,9 +6,9 @@ apply plugin: 'application'
 apply plugin: 'jacoco'
 apply plugin: 'checkstyle'
 
-archivesBaseName = 'sainsbury-web-scrapper'
+archivesBaseName = 'sainsbury-product-scrapper'
 
-mainClassName = "com.sainsburys.webscrapper.Application"
+mainClassName = "com.sainsburys.productscrapper.Application"
 
 sourceSets {
     integrationTest {
@@ -73,7 +73,7 @@ task fatJar(type: Jar) {
     manifest {
         attributes 'Implementation-Title': 'sainsbury-web-scrapper',
                 'Implementation-Version': version,
-                'Main-Class': 'com.sainsburys.webscrapper.Application'
+                'Main-Class': 'com.sainsburys.productscrapper.Application'
     }
     baseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }

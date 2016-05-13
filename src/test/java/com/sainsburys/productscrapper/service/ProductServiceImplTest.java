@@ -30,28 +30,28 @@ public class ProductServiceImplTest {
     @Test
     public void should_convert_and_products_when_parser_returns_elements() {
 
-        // Given
+        // Arrange
         when(htmlParser.getAllProducts()).thenReturn(null);
 
-        // When
+        // Act
         List<Product> products = productService.getAll();
 
-        // Then
+        // Assert
         assertThat(products).isNull();
     }
 
     @Test
     public void should_return_products_when_parser_not_return_products() {
 
-        // Given
+        // Arrange
         Elements elements = getProductElements();
 
         when(htmlParser.getAllProducts()).thenReturn(elements);
 
-        // When
+        // Act
         List<Product> products = productService.getAll();
 
-        // Then
+        // Assert
         assertThat(products).isNotEmpty();
         assertThat(products.size()).isEqualTo(1);
     }
@@ -59,15 +59,15 @@ public class ProductServiceImplTest {
     @Test
     public void should_populate_title_from_html() {
 
-        // Given
+        // Arrange
         Elements elements = getProductElements();
         when(htmlParser.getAllProducts()).thenReturn(elements);
 
-        // When
+        // Act
         List<Product> products = productService.getAll();
         Product firstProduct = products.get(0);
 
-        // Then
+        // Assert
         assertThat(firstProduct).isNotNull();
         assertThat(firstProduct.getTitle()).isEqualTo("Sainsbury's Apricot Ripe & Ready x5");
     }
@@ -75,15 +75,15 @@ public class ProductServiceImplTest {
     @Test
     public void should_populate_details_url_from_html() {
 
-        // Given
+        // Arrange
         Elements elements = getProductElements();
         when(htmlParser.getAllProducts()).thenReturn(elements);
 
-        // When
+        // Act
         List<Product> products = productService.getAll();
         Product firstProduct = products.get(0);
 
-        // Then
+        // Assert
         assertThat(firstProduct).isNotNull();
         assertThat(firstProduct.getDetailsUrl())
                 .isEqualTo(
@@ -93,16 +93,16 @@ public class ProductServiceImplTest {
     @Test
     public void should_populate_price_per_unit_from_html() {
 
-        // Given
+        // Arrange
         Elements elements = getProductElements();
         when(htmlParser.getAllProducts()).thenReturn(elements);
         BigDecimal expectedUnitPrice = new BigDecimal("3.50");
 
-        // When
+        // Act
         List<Product> products = productService.getAll();
         Product firstProduct = products.get(0);
 
-        // Then
+        // Assert
         assertThat(firstProduct).isNotNull();
         assertThat(firstProduct.getUnitPrice()).isEqualTo(expectedUnitPrice);
     }
@@ -110,16 +110,16 @@ public class ProductServiceImplTest {
     @Test
     public void should_set_page_size_on_product() {
 
-        // Given
+        // Arrange
         Elements elements = getProductElements();
         when(htmlParser.getAllProducts()).thenReturn(elements);
         when(htmlParser.getPageSize(anyString())).thenReturn(10.13);
 
-        // When
+        // Act
         List<Product> products = productService.getAll();
         Product firstProduct = products.get(0);
 
-        // Then
+        // Assert
         assertThat(firstProduct).isNotNull();
         assertThat(firstProduct.getSize()).isEqualTo("10.1Kb");
     }
@@ -127,16 +127,16 @@ public class ProductServiceImplTest {
     @Test
     public void should_set_descripton_on_product() {
 
-        // Given
+        // Arrange
         Elements elements = getProductElements();
         when(htmlParser.getAllProducts()).thenReturn(elements);
         when(htmlParser.getProductDescription(anyString())).thenReturn("some product description");
 
-        // When
+        // Act
         List<Product> products = productService.getAll();
         Product firstProduct = products.get(0);
 
-        // Then
+        // Assert
         assertThat(firstProduct).isNotNull();
         assertThat(firstProduct.getDescription()).isEqualTo("some product description");
     }

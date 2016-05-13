@@ -1,7 +1,6 @@
 package com.sainsburys.productscrapper.parser;
 
 import com.sainsburys.productscrapper.webclient.WebClient;
-import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Connection;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -9,12 +8,14 @@ import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
+
 public class HtmlParserImpl implements Parser {
 
-    private static final String ALL_PRODUCT_INFO_WRAPPERS = "div.product";
-    private static final String CONTENT_LENGTH = "Content-Length";
+    public static final String ALL_PRODUCT_INFO_WRAPPERS = "div.product";
+    public static final String CONTENT_LENGTH = "Content-Length";
+    public static final String PRODUCT_DETAILS = "div.productText p";
     private static final int KB_DIVIDER = 1024;
-    private static final String PRODUCT_DETAILS = "div.productText p";
 
     @Value("${scrapper.url}")
     private String url;
@@ -45,11 +46,11 @@ public class HtmlParserImpl implements Parser {
     public String getProductDescription(String detailsUrl) {
 
         Document document = webClient.getDocument(detailsUrl);
-        Element first = document.select(PRODUCT_DETAILS).first();
+        Elements elements = document.select(PRODUCT_DETAILS);
+        Element first = elements.first();
 
-        String description = (first == null) ? StringUtils.EMPTY : first.text();
+        String description = (first == null) ? EMPTY : first.text();
 
         return description;
     }
-
 }
