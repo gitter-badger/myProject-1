@@ -13,6 +13,12 @@ This application uses a local instance of Gradle.
 
 To run the application:
 
+* gradlew fatJar
+* Navigate to [PROJECT_ROOT]/build/lib folder
+* java -jar myproject-all-1.0.jar
+
+To run the application:
+
 * gradlew run
 
 Run Tests:
@@ -26,5 +32,7 @@ Get Code Coverage:
 Reports :
 
 * To view the test report at [PROJECT_ROOT]/build/reports/tests/index.html
-* To view the coverage report at [PROJECT_ROOT]/build/\jacocoHtml/index.html
+* To view the coverage report at [PROJECT_ROOT]/build/jacocoHtml/index.html
+
+
 
