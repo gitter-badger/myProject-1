@@ -8,14 +8,10 @@ import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
+import static com.sainsburys.productscrapper.constants.Constants.*;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 public class HtmlParserImpl implements Parser {
-
-    public static final String ALL_PRODUCT_INFO_WRAPPERS = "div.product";
-    public static final String CONTENT_LENGTH = "Content-Length";
-    public static final String PRODUCT_DETAILS = "div.productText p";
-    private static final int KB_DIVIDER = 1024;
 
     @Value("${scrapper.url}")
     private String url;

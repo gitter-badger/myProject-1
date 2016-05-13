@@ -9,13 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.sainsburys.productscrapper.constants.Constants.*;
+
 @Service
 public class ProductServiceImpl implements ProductService {
-
-    private static final String TITLE = "div.productInfo a";
-    private static final String DETAILS_URL = "div.productInfo a";
-    private static final String HREF = "href";
-    private static final String PRICE_PER_UNIT = "pricePerUnit";
 
     @Autowired
     private Parser htmlParser;

@@ -12,9 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static com.sainsburys.productscrapper.parser.HtmlParserImpl.ALL_PRODUCT_INFO_WRAPPERS;
-import static com.sainsburys.productscrapper.parser.HtmlParserImpl.CONTENT_LENGTH;
-import static com.sainsburys.productscrapper.parser.HtmlParserImpl.PRODUCT_DETAILS;
+import static com.sainsburys.productscrapper.constants.Constants.*;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;
