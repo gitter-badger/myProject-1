@@ -1,5 +1,7 @@
 #Products Scrapper
 
+[![Join the chat at https://gitter.im/fukatingu/myproject](https://badges.gitter.im/fukatingu/myproject.svg)](https://gitter.im/fukatingu/myproject?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://snap-ci.com/fukatingu/myproject/branch/master/build_image)](https://snap-ci.com/fukatingu/myproject/branch/master)
 
 ### Introduction
