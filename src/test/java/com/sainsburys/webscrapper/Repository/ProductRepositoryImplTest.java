@@ -61,6 +61,7 @@ public class ProductRepositoryImplTest {
 
         // Given
         Elements elements = getProductElements();
+        when(htmlParser.getAllProducts()).thenReturn(elements);
 
         // When
         List<Product> products = productRepository.getAll();

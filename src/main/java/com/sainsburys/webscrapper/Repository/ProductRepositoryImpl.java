@@ -31,7 +31,6 @@ public class ProductRepositoryImpl implements ProductRepository {
 
         List<Product> products = allProducts.stream()
                 .map(p -> {
-
                     String title = p.select(TITLE).text();
                     String detailsUrl = p.select(DETAILS_URL).attr(HREF);
                     String pricePerUnit = p.getElementsByClass(PRICE_PER_UNIT).get(0).ownText();
