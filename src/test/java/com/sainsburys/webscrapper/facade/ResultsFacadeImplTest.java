@@ -58,5 +58,4 @@ public class ResultsFacadeImplTest {
         assertThat(result.getResults()).isNull();
     }
 
-
 }
