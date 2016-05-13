@@ -2,34 +2,43 @@
 
 [![Build Status](https://snap-ci.com/fukatingu/myproject/branch/master/build_image)](https://snap-ci.com/fukatingu/myproject/branch/master)
 
+### Introduction
 
-##What is required to use this code
+*************************** TODO ***************************
+- [ ] This is an incomplete item
+
+###What is required to use this code
 * JAVA_HOME environment variable set to a JDK8
 * Eclipse or IntelliJ
 
-##General usage
+### Usage
 
-This application uses a local instance of Gradle.
+This application uses a local instance of [Gradle](http://gradle.org/).
 
-To run the application:
+### Running the application with JAVA
 
+* git clone *************************** TODO ***************************
 * gradlew fatJar
-* Navigate to [PROJECT_ROOT]/build/lib folder
+* cd [PROJECT_ROOT]/build/lib folder
 * java -jar myproject-all-1.0.jar
 
-To run the application:
+### Running the application with [Gradle](http://gradle.org/)
 
 * gradlew run
 
-Run Tests:
+### CheckStyle
 
-* gradlew clean test
+* gradlew checkstyle
 
-Get Code Coverage:
+### Code Coverage
 
 * gradlew clean build jacocoTestReport
 
-Reports :
+### Tests
+
+* gradlew clean test
+
+### View Reports :
 
 * To view the test report at [PROJECT_ROOT]/build/reports/tests/index.html
 * To view the coverage report at [PROJECT_ROOT]/build/jacocoHtml/index.html
