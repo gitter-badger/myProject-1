@@ -26,7 +26,7 @@ public class ConsoleReporterTest {
     private Reporter consoleReporter = new ConsoleReporter();
 
     @Test
-    public void should_call_json_serializer_to_serialize_result() throws Exception {
+    public void should_call_json_serializer_to_serialize_result() {
 
         // Arrange
         Product product1 = new ProductBuilder().build();

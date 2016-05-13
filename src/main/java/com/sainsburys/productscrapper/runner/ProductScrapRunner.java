@@ -15,13 +15,13 @@ public class ProductScrapRunner implements CommandLineRunner {
     private ResultsFacade resultsFacade;
 
     @Autowired
-    private Reporter consoleReporter;
+    private Reporter reporter;
 
     @Override
-    public void run(String... strings) throws Exception {
+    public void run(String... strings)  {
 
         Result results = resultsFacade.getResults();
 
-        consoleReporter.report(results);
+        reporter.report(results);
     }
 }

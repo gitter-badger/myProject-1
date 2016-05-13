@@ -3,13 +3,14 @@ package com.sainsburys.productscrapper.serializer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sainsburys.productscrapper.model.Result;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 public class ResultJsonSerialiser implements ResultSerialiser {
 
-    private Logger LOG = Logger.getLogger(ResultJsonSerialiser.class);
+    private Logger LOG = LoggerFactory.getLogger(ResultJsonSerialiser.class);
 
     private final ObjectMapper mapper;
 

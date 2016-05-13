@@ -34,7 +34,7 @@ public class ResultTest {
     }
 
     @Test
-    public void should_return_null_for_total_if_no_products() throws Exception {
+    public void should_return_null_for_total_if_no_products() {
 
         // Arrange
         Result result = new Result(null);

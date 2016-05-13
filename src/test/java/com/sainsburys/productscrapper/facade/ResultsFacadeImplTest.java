@@ -27,7 +27,7 @@ public class ResultsFacadeImplTest {
     private ResultsFacade resultsFacade = new ResultsFacadeImpl();
 
     @Test
-    public void should_call_product_service_get_all_to_return_products() throws Exception {
+    public void should_call_product_service_get_all_to_return_products() {
 
         // Arrange
         Product product1 = new ProductBuilder().build();
@@ -45,7 +45,7 @@ public class ResultsFacadeImplTest {
     }
 
     @Test
-    public void should_return_same_results_when_productRepository_returns_some_products() throws Exception {
+    public void should_return_same_results_when_productRepository_returns_some_products() {
 
         // Arrange
         Product product1 = new ProductBuilder().build();
@@ -65,7 +65,7 @@ public class ResultsFacadeImplTest {
     }
 
     @Test
-    public void should_return_no_products_when_productRepository_returns_no_products() throws Exception {
+    public void should_return_no_products_when_productRepository_returns_no_products() {
 
         // Arrange
         when(productService.getAll()).thenReturn(null);

@@ -33,7 +33,7 @@ public class ProductScrapRunnerTest {
     private ProductScrapRunner productScrapRunner = new ProductScrapRunner();
 
     @Test
-    public void should_call_resultsFacade_to_get_results() throws Exception {
+    public void should_call_resultsFacade_to_get_results()  {
 
         // Arrange
         Product product1 = new ProductBuilder().withPageSize(10.1).build();
@@ -54,7 +54,7 @@ public class ProductScrapRunnerTest {
     }
 
     @Test
-    public void should_pass_the_results_to_console_reporter() throws Exception {
+    public void should_pass_the_results_to_console_reporter()  {
 
         // Arrange
         Product product1 = new ProductBuilder().withPageSize(10.1).build();

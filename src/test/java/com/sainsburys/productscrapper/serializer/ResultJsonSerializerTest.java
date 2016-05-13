@@ -23,7 +23,7 @@ public class ResultJsonSerializerTest {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Test
-    public void should_return_results_node_as_json_when_results_serialized() throws Exception {
+    public void should_return_results_node_as_json_when_results_serialized() {
 
         // Arrange
         ResultSerialiser resultJsonSerialize = new ResultJsonSerialiser(mapper);
@@ -44,7 +44,7 @@ public class ResultJsonSerializerTest {
     }
 
     @Test
-    public void should_return_same_product_in_json_as_passed_in_result() throws Exception {
+    public void should_return_same_product_in_json_as_passed_in_result() {
 
         // Arrange
         ResultSerialiser resultJsonSerialize = new ResultJsonSerialiser(mapper);
@@ -64,7 +64,7 @@ public class ResultJsonSerializerTest {
     }
 
     @Test
-    public void should_return_total() throws Exception {
+    public void should_return_total() {
 
         // Arrange
         ResultSerialiser resultJsonSerialize = new ResultJsonSerialiser(mapper);
@@ -84,7 +84,7 @@ public class ResultJsonSerializerTest {
     }
 
     @Test
-    public void should_convert_all_products_titles_to_json_with_correct_values() throws Exception {
+    public void should_convert_all_products_titles_to_json_with_correct_values() {
 
         // Arrange
         ResultSerialiser resultJsonSerialize = new ResultJsonSerialiser(mapper);
@@ -106,7 +106,7 @@ public class ResultJsonSerializerTest {
     }
 
     @Test
-    public void should_convert_all_products_description_to_json_with_correct_values() throws Exception {
+    public void should_convert_all_products_description_to_json_with_correct_values() {
 
         // Arrange
         ResultSerialiser resultJsonSerialize = new ResultJsonSerialiser(mapper);
@@ -128,7 +128,7 @@ public class ResultJsonSerializerTest {
     }
 
     @Test
-    public void should_convert_all_products_size_to_json_with_correct_values() throws Exception {
+    public void should_convert_all_products_size_to_json_with_correct_values() {
 
         // Arrange
         ResultSerialiser resultJsonSerialize = new ResultJsonSerialiser(mapper);
@@ -150,7 +150,7 @@ public class ResultJsonSerializerTest {
     }
 
     @Test
-    public void should_convert_all_products_unit_price_to_json_with_correct_values() throws Exception {
+    public void should_convert_all_products_unit_price_to_json_with_correct_values() {
 
         // Arrange
         ResultSerialiser resultJsonSerialize = new ResultJsonSerialiser(mapper);
@@ -172,7 +172,7 @@ public class ResultJsonSerializerTest {
     }
 
     @Test
-    public void should_return_no_products_when_productRepository_returns_no_products() throws Exception {
+    public void should_return_no_products_when_productRepository_returns_no_products() {
 
         // Arrange
         ResultSerialiser resultJsonSerialize = new ResultJsonSerialiser(mapper);
@@ -185,7 +185,7 @@ public class ResultJsonSerializerTest {
     }
 
     @Test(expected = RuntimeException.class)
-    public void should_throw_RuntimeException_when_error_serializing_Result() throws Exception {
+    public void should_throw_RuntimeException_when_error_serializing_Result()  throws Exception {
 
         // Arrange
         ResultSerialiser resultJsonSerialize = new ResultJsonSerialiser(mapper);

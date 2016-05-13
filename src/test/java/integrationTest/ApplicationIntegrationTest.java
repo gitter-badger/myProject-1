@@ -23,7 +23,7 @@ public class ApplicationIntegrationTest {
     public OutputCapture outputCapture = new OutputCapture();
 
     @Test
-    public void shouldGenerateResultFiles() throws Exception {
+    public void shouldGenerateResultFiles() {
 
         application.main("sampleOutPut");
 

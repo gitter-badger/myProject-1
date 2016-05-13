@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ProductTest {
 
     @Test
-    public void should_return_formatted_page_size() throws Exception {
+    public void should_return_formatted_page_size() {
 
         // Arrange
         String title = "Sainsbury's Kiwi Fruit, Ripe & Ready x4";
@@ -28,7 +28,7 @@ public class ProductTest {
     }
 
     @Test
-    public void should_formatted_page_size_to_one_decimal_point() throws Exception {
+    public void should_formatted_page_size_to_one_decimal_point() {
 
         // Arrange
         String title = "Sainsbury's Kiwi Fruit, Ripe & Ready x4";
@@ -47,7 +47,7 @@ public class ProductTest {
     }
 
     @Test
-    public void should_remove_pound_sign_and_covert_to_unit_price() throws Exception {
+    public void should_remove_pound_sign_and_covert_to_unit_price() {
 
         // Arrange
         String title = "Sainsbury's Kiwi Fruit, Ripe & Ready x4";
@@ -68,7 +68,7 @@ public class ProductTest {
     }
 
     @Test
-    public void should_return_zero_if_price_per_unit_is_null() throws Exception {
+    public void should_return_zero_if_price_per_unit_is_null() {
 
         // Arrange
         String title = "Sainsbury's Kiwi Fruit, Ripe & Ready x4";
