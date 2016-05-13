@@ -26,7 +26,7 @@ public class ApplicationConfiguration {
     }
 
     @Bean
-    public Parser parser() {
+    public Parser htmlParser() {
         return new HtmlParserImpl();
     }
 

@@ -8,13 +8,13 @@ import com.sainsburys.productscrapper.model.Result;
 import com.sainsburys.productscrapper.service.ProductService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
-@Service
+@Component
 public class ResultsFacadeImpl implements ResultsFacade {
 
     private Logger LOG = Logger.getLogger(ResultsFacadeImpl.class);

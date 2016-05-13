@@ -4,9 +4,11 @@ import org.apache.log4j.Logger;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+@Component
 public class JsoupWebClient implements WebClient {
 
     private Logger LOG = Logger.getLogger(JsoupWebClient.class);

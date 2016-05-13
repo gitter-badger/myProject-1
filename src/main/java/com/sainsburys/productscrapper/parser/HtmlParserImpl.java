@@ -7,10 +7,12 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import static com.sainsburys.productscrapper.constants.Constants.*;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
+@Component
 public class HtmlParserImpl implements Parser {
 
     @Value("${scrapper.url}")
